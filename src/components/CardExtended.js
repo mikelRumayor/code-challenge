@@ -15,7 +15,6 @@ class CardExtended extends React.Component {
   }
 
   render () {
-    console.log(this.props.article)
     if (!this.props.article) {
         return null;
     }
