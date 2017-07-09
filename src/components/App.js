@@ -3,6 +3,8 @@ import request from '../request';
 import { ARTICLES_QUERY } from '../queries';
 
 import MainLayout from './MainLayout';
+import { Route , Switch } from 'react-router-dom'
+
 
 class App extends Component {
   // definition
@@ -25,7 +27,10 @@ class App extends Component {
     const props = this.state
 
     return (
-      <MainLayout {...props}/>
+      <Switch>
+        <Route exact path="/" render={() => <MainLayout {...props}/>} />
+        <Route path="/:id" render={() => <h1> hola </h1>} />
+      </Switch>
     );
   }
 }
