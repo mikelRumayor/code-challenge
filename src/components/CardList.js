@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import request from '../request';
 import { ARTICLES_QUERY } from '../queries';
 
 import Card from './Card';
@@ -17,25 +16,18 @@ const StyledCardsContainer = styled.div`
 
 class CardList extends React.Component {
 
-  constructor (props) {
-    super(props)
-    this.state = {
-      articles: []
-    };
-    console.log(props)
-  }
-
   // lifecycle
   componentWillMount() {
-    request.getAllArticles(ARTICLES_QUERY).then(response => {
+    this.props.actions.getAllArticles(ARTICLES_QUERY)
+    /*request.getAllArticles(ARTICLES_QUERY).then(response => {
       this.setState({ articles: response.data.articles });
-    });
+    });*/
   }
 
   render () {
     return (
       <StyledCardsContainer>
-        {this.state.articles.map((article, i) => <Card key={i} article={article}/>)}
+        {this.props.articles && this.props.articles.map((article, i) => <Card key={i} article={article}/>)}
       </StyledCardsContainer>
     )
   }
