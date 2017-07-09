@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
 
 const StyledCard = styled.div`
   background: rgb(170, 170, 170);
@@ -20,8 +21,10 @@ const StyledP = styled.p`
 
 const Card = (props) => (
   <StyledCard>
-    <StyledH3>{props.article.author}</StyledH3>
-    <StyledP>{props.article.excerpt}</StyledP>
+    <Link to={`/${props.article.id}`}>
+      <StyledH3>{props.article.author}</StyledH3>
+      <StyledP>{props.article.excerpt}</StyledP>
+    </Link>
   </StyledCard>
 )
 
