@@ -5,11 +5,6 @@ import {ARTICLE_QUERY} from '../queries';
 
 class CardExtended extends React.Component {
 
-  constructor (props) {
-    super(props)
-    this.state = {article: {}}
-  }
-
   componentDidMount () {
     this.props.actions.getArticleById({query: ARTICLE_QUERY, variables: {id: this.props.match.params.id}})
   }
