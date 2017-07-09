@@ -4,7 +4,8 @@ import {
   GraphQLString,
   GraphQLList,
   GraphQLSchema,
-  GraphQLID
+  GraphQLID,
+  GraphQLNonNull
 } from 'graphql';
 import db from './db';
 
@@ -50,7 +51,7 @@ const Query = new GraphQLObjectType({
       type: articleType,
       args: {
         id: {
-          type: GraphQLID
+          type: new GraphQLNonNull(GraphQLID)
         }
       },
       resolve(_, {id}) {
@@ -60,8 +61,71 @@ const Query = new GraphQLObjectType({
   }),
 });
 
+const Mutation  = new GraphQLObjectType({
+  name: 'Mutations',
+  fields: () => ({
+    addArticle: {
+      type: new GraphQLList(articleType),
+      args: {
+        title: {
+              type: new GraphQLNonNull(GraphQLString),
+         },
+         description: {
+           type: GraphQLString,
+         },
+         author: {
+           type: new GraphQLNonNull(GraphQLString),
+         }
+      },
+      resolve: async (parent, args) => {
+           const article = await db.Article.create({
+             title: args.title,
+             description: args.description,
+             author: args.author
+           });
+           return article;
+         },
+       },
+       deleteArticle: {
+         type: new GraphQLList(articleType),
+         args: {
+           id: {
+             type: new GraphQLNonNull(GraphQLID)
+           }
+         },
+         resolve(_, {id}) {
+           return db.Article.remove(id);
+         },
+       },
+       updateArticle: {
+         type: new GraphQLList(articleType),
+         args: {
+           title: {
+                 type: new GraphQLNonNull(GraphQLString),
+            },
+            description: {
+              type: GraphQLString,
+            },
+            author: {
+              type: new GraphQLNonNull(GraphQLString),
+            }
+         },
+         resolve: async (parent, args) => {
+              const article = await db.Article.findOneAndUpdate({
+                title: args.title,
+                description: args.description,
+                author: args.author
+              });
+              return article;
+            },
+       }
+   }),
+});
+
+
 const Schema = new GraphQLSchema({
   query: Query,
+  mutation: Mutation
 });
 
 export default Schema;
