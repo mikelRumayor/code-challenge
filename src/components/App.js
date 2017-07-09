@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-import request from '../request';
+import React from 'react';
 import { Route , Switch } from 'react-router-dom'
-import { ARTICLES_QUERY } from '../queries';
 
 import MainLayout from './MainLayout';
 import CardExtended from './CardExtended';
