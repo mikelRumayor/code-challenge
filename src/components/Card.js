@@ -10,6 +10,9 @@ const StyledCard = styled.div`
   margin: 4px 0;
   border: 1px solid black;
 `;
+const StyledH2 = styled.h2`
+  text-align: center;
+`;
 const StyledH3 = styled.h3`
   text-align: center;
 `;
@@ -22,6 +25,7 @@ const StyledP = styled.p`
 const Card = (props) => (
   <StyledCard>
     <Link to={`/${props.article.id}`}>
+      <StyledH2>{props.article.title}</StyledH2>
       <StyledH3>{props.article.author}</StyledH3>
       <StyledP>{props.article.excerpt}</StyledP>
     </Link>

@@ -11,19 +11,28 @@ class CardExtended extends React.Component {
     this.state = {article: {}}
   }
 
-  componentWillMount () {
-    console.log('hola')
-    request.getArticleById({query: ARTICLE_QUERY, variables: {id: '59623e7d09e5c32e59a3f707'}}).then(response => {
+  componentDidMount () {
+    request.getArticleById({query: ARTICLE_QUERY, variables: {id: this.props.match.params.id}}).then(response => {
       this.setState({ article: response.data.article });
     });
   }
 
   render () {
+    console.log(this.state.article)
+    console.log(this.state.article)
+
     return (
       <div>
         <Link to={'/'}>
           Go back
         </Link>
+        <h1>{this.state.article.title}</h1>
+        <h2>{this.state.article.author}</h2>
+        <span>{this.state.article.published ? 'published': 'not published'}</span>
+        <p>{this.state.article.content}</p>
+        <ul>
+        {this.state.article.tags && this.state.article.tags.map((tag, i) => <li key={i} >{tag}</li>)}
+        </ul>
       </div>
     )
   }
