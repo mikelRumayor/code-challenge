@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
+
+import request from '../request';
+import { ARTICLES_QUERY } from '../queries';
 
 import Header from './Header';
 import Card from './Card';
@@ -14,15 +18,34 @@ const StyledCardsContainer = styled.div`
   justify-content: space-around;
 `;
 
-const MainLayout = (props) => (
-  <div className='App'>
-    <Header title={'Billin code challenge'}/>
-    <StyledCardsContainer>
-      {props.articles.map((article, i) => <Card key={i} article={article}/>)}
-    </StyledCardsContainer>
-    <Footer footer={'Mikel Rumayor'}/>
-  </div>
-);
+class MainLayout extends React.Component {
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      articles: []
+    };
+  }
+
+  // lifecycle
+  componentWillMount() {
+    request.getAllArticles(ARTICLES_QUERY).then(response => {
+      this.setState({ articles: response.data.articles });
+    });
+  }
+
+  render () {
+    return (
+      <div className='App'>
+        <Header title={'Billin code challenge'}/>
+        <StyledCardsContainer>
+          {this.state.articles.map((article, i) => <Card key={i} article={article}/>)}
+        </StyledCardsContainer>
+        <Footer footer={'Mikel Rumayor'}/>
+      </div>
+    )
+  }
+};
 
 MainLayout.propTypes = {
   articles: PropTypes.array
