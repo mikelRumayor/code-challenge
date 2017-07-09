@@ -6,3 +6,17 @@ export const ARTICLES_QUERY = `{
     title
   }
 }`;
+
+
+export const ARTICLE_QUERY = `
+query article($id: ID!){
+  article(id: $id) {
+    author
+    excerpt
+    id
+    content
+    published
+    tags
+    title
+  }
+}`;
