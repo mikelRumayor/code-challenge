@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Header from './Header';
 import Card from './Card';
 import Footer from './Footer';
@@ -21,5 +23,9 @@ const MainLayout = (props) => (
     <Footer footer={'Mikel Rumayor'}/>
   </div>
 );
+
+MainLayout.propTypes = {
+  articles: PropTypes.array
+}
 
 export default MainLayout

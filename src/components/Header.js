@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 
 const StyledCard = styled.header`
@@ -18,5 +20,11 @@ const Header = (props) => (
     <StyledH2>{props.title}</StyledH2>
   </StyledCard>
 );
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired
+}
+
+
 
 export default Header;

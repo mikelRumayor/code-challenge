@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledCard = styled.div`
@@ -17,13 +18,15 @@ const StyledP = styled.p`
   padding: 3%;
 `;
 
-
-
 const Card = (props) => (
   <StyledCard>
     <StyledH3>{props.article.author}</StyledH3>
     <StyledP>{props.article.excerpt}</StyledP>
   </StyledCard>
 )
+
+Card.propTypes = {
+  article: PropTypes.object
+}
 
 export default Card
