@@ -9,11 +9,9 @@ export const ARTICLES_QUERY = `{
 
 
 export const ARTICLE_QUERY = `
-query article($id: ID!){
+query article($id: ID!) {
   article(id: $id) {
     author
-    excerpt
-    id
     content
     published
     tags
