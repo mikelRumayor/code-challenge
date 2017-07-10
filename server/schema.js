@@ -65,7 +65,7 @@ const Mutation  = new GraphQLObjectType({
   name: 'Mutations',
   fields: () => ({
     addArticle: {
-      type: new GraphQLList(articleType),
+      type: articleType,
       args: {
         title: {
               type: new GraphQLNonNull(GraphQLString),
@@ -87,7 +87,7 @@ const Mutation  = new GraphQLObjectType({
          },
        },
        deleteArticle: {
-         type: new GraphQLList(articleType),
+         type: articleType,
          args: {
            id: {
              type: new GraphQLNonNull(GraphQLID)
@@ -98,7 +98,7 @@ const Mutation  = new GraphQLObjectType({
          },
        },
        updateArticle: {
-         type: new GraphQLList(articleType),
+         type: articleType,
          args: {
            title: {
                  type: new GraphQLNonNull(GraphQLString),
