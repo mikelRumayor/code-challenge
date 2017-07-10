@@ -5,7 +5,6 @@ import * as actionCreators from '../redux/actions/articles'
 
 import CardList from '../components/CardList'
 
-
 const mapStateToProps = (state) => {
   const {articles, article} = state.articles
   return {
@@ -13,8 +12,6 @@ const mapStateToProps = (state) => {
     article
   };
 }
-
-
 
 export default connect(mapStateToProps,
   dispatch => ({
