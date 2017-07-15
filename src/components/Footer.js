@@ -24,4 +24,4 @@ Footer.propTypes = {
   footer: PropTypes.string
 }
 
-export default Footer;
+export default Footer

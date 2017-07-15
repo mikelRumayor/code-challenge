@@ -9,22 +9,22 @@ import styled from 'styled-components'
 
 const StyledCardsContainer = styled.div`
   background: white;
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 `
 
 class CardList extends React.Component {
 
   // lifecycle
-  componentWillMount() {
+  componentWillMount () {
     this.props.actions.getAllArticles(ARTICLES_QUERY)
   }
 
   render () {
     return (
       <StyledCardsContainer>
-        {this.props.articles && this.props.articles.map((article, i) => <Card key={i} {...article}/>)}
+        {this.props.articles && this.props.articles.map((article, i) => <Card key={i} {...article} />)}
       </StyledCardsContainer>
     )
   }
