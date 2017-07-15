@@ -1,10 +1,10 @@
 import db from '../db'
 
-const articleResolver = (_, args) => {
+const articleResolver = (parent, args) => {
   return db.Article.findById(args.id)
 }
 
-const articlesResolver = () => {
+const articlesResolver = (parent) => {
   return db.Article.find()
 }
 
@@ -30,7 +30,7 @@ const updateArticleResolver = async (parent, args) => {
   return article
 }
 
-export default {
+export {
   articleResolver,
   articlesResolver,
   addArticleResolver,
