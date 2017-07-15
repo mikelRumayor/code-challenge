@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
   return {
     articles,
     article
-  };
+  }
 }
 
 export default connect(mapStateToProps,
