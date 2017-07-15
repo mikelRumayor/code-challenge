@@ -16,7 +16,6 @@ const StyledH2 = styled.h2`
 const StyledH3 = styled.h3`
   text-align: center;
 `
-
 const StyledP = styled.p`
   text-align: justify;
   padding: 3%;
@@ -24,16 +23,19 @@ const StyledP = styled.p`
 
 const Card = (props) => (
   <StyledCard>
-    <Link to={`/${props.id}`}>
+    <Link to={`/${props.link}`}>
       <StyledH2>{props.title}</StyledH2>
-      <StyledH3>{props.author}</StyledH3>
-      <StyledP>{props.excerpt}</StyledP>
+      <StyledH3>{props.subtitle}</StyledH3>
+      <StyledP>{props.text}</StyledP>
     </Link>
   </StyledCard>
 )
 
 Card.propTypes = {
-  article: PropTypes.object
+  link: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  text: PropTypes.string
 }
 
 export default Card

@@ -24,7 +24,7 @@ class CardList extends React.Component {
   render () {
     return (
       <StyledCardsContainer>
-        {this.props.articles && this.props.articles.map((article, i) => <Card key={i} {...article} />)}
+        {this.props.articles && this.props.articles.map((article, i) => <Card key={i} link={article.id} title={article.title} subtitle={article.author} text={article.excerpt} />)}
       </StyledCardsContainer>
     )
   }
