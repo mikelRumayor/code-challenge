@@ -17,4 +17,4 @@ export default connect(mapStateToProps,
   dispatch => ({
     actions: bindActionCreators(actionCreators, dispatch)
   })
-)(CardExtended);
+)(CardExtended)

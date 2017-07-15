@@ -24,10 +24,10 @@ const StyledP = styled.p`
 
 const Card = (props) => (
   <StyledCard>
-    <Link to={`/${props.article.id}`}>
-      <StyledH2>{props.article.title}</StyledH2>
-      <StyledH3>{props.article.author}</StyledH3>
-      <StyledP>{props.article.excerpt}</StyledP>
+    <Link to={`/$link}`}>
+      <StyledH2>{props.title}</StyledH2>
+      <StyledH3>{props.author}</StyledH3>
+      <StyledP>{props.excerpt}</StyledP>
     </Link>
   </StyledCard>
 )

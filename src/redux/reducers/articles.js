@@ -1,6 +1,5 @@
 import * as Constants from '../constants/articles'
 
-
 function Articles(state = {
   articles: [],
   article: null
@@ -11,7 +10,7 @@ function Articles(state = {
     case Constants.GET_ARTICLE_BY_ID:
       return { ...state, article: action.payload }
     default:
-      return state;
+      return state
   }
 }
 

@@ -1,10 +1,10 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
 
-import store, {history} from '../store';
+import store, {history} from '../store'
 
-import MainLayout from './MainLayout';
+import MainLayout from './MainLayout'
 
 const App = () => (
   <Provider store={store}>
@@ -12,7 +12,6 @@ const App = () => (
       <MainLayout />
     </ConnectedRouter>
   </Provider>
-);
+)
 
-
-export default App;
+export default App

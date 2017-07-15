@@ -10,11 +10,11 @@ const mapStateToProps = (state) => {
   return {
     articles,
     article
-  };
+  }
 }
 
 export default connect(mapStateToProps,
   dispatch => ({
     actions: bindActionCreators(actionCreators, dispatch)
   })
-)(CardList);
+)(CardList)

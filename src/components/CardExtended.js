@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {ARTICLE_QUERY} from '../queries';
+import {ARTICLE_QUERY} from '../queries'
 
 
 class CardExtended extends React.Component {
@@ -11,7 +11,7 @@ class CardExtended extends React.Component {
 
   render () {
     if (!this.props.article) {
-        return null;
+        return null
     }
 
     return (

@@ -1,5 +1,5 @@
 import * as Constants from '../constants/articles'
-import request from '../../request';
+import request from '../../request'
 
 // ------------------------------------
 // Actions
@@ -8,7 +8,6 @@ export const getAllArticles = (query) => {
   return dispatch => {
     dispatch(requestArticles(query))
     dispatch(storeArticles())
-
   }
 }
 
@@ -35,7 +34,6 @@ function requestArticle (query) {
     });
   }
 }
-
 
 function storeArticles (articles) {
   return {

@@ -5,7 +5,7 @@ export const ARTICLES_QUERY = `{
     id
     title
   }
-}`;
+}`
 
 
 export const ARTICLE_QUERY = `
@@ -17,4 +17,4 @@ query article($id: ID!) {
     tags
     title
   }
-}`;
+}`
