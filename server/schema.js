@@ -1,5 +1,4 @@
-import articleType from './types/Article'
-
+import {GraphQLObjectType, GraphQLSchema} from 'graphql'
 import {article, articles, addArticle, deleteArticle, updateArticle} from './article'
 
 const Query = new GraphQLObjectType({
@@ -11,15 +10,14 @@ const Query = new GraphQLObjectType({
   })
 })
 
-const Mutation  = new GraphQLObjectType({
+const Mutation = new GraphQLObjectType({
   name: 'Mutations',
   fields: () => ({
     addArticle,
     deleteArticle,
     updateArticle
-   })
+  })
 })
-
 
 const Schema = new GraphQLSchema({
   query: Query,
